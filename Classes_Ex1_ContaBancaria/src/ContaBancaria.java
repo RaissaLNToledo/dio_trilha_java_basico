@@ -32,13 +32,13 @@ public class ContaBancaria {
         if (saldo >= valor){
             saldo = saldo - valor;
             limiteConta = atualizarLimiteConta(saldo);
-            System.out.printf("Conta no valor de %s paga com sucesso. \nSaldo atual: %s \nLimite da conta: %s", valor, saldo, limiteConta);
+            System.out.printf("Conta no valor de %s paga com sucesso. \nSaldo atual: %s \nLimite da conta: %s\n", valor, saldo, limiteConta);
         } else if (limiteConta >= valor) {
              saldo = saldo - valor;
              limiteConta = atualizarLimiteConta(saldo);
-            System.out.printf("Conta no valor de %s paga com sucesso. \nSaldo atual: %s \nLimite da conta: %s \nVocê está utilizando o cheque especial.", valor, saldo, limiteConta);
+            System.out.printf("Conta no valor de %s paga com sucesso. \nSaldo atual: %s \nLimite da conta: %s \nVocê está utilizando o cheque especial.\n", valor, saldo, limiteConta);
         } else {
-            System.out.println("Saldo insuficiente para o pagamento da conta!");
+            System.out.println("Saldo insuficiente para o pagamento da conta!\n");
         }
     }
 
@@ -46,13 +46,13 @@ public class ContaBancaria {
         if (saldo >= valor){
             saldo = saldo - valor;
             limiteConta = atualizarLimiteConta(saldo);
-            System.out.printf("%s reais sacado com sucesso. \nSaldo atual: %s \nLimite da conta: %s", valor, saldo, limiteConta);
+            System.out.printf("%s reais sacado com sucesso. \nSaldo atual: %s \nLimite da conta: %s\n", valor, saldo, limiteConta);
         } else if (limiteConta >= valor) {
             saldo = saldo - valor;
             limiteConta = atualizarLimiteConta(saldo);
-            System.out.printf("%s reais sacado com sucesso. \nSaldo atual: %s \nLimite da conta: %s \nVocê está utilizando o cheque especial.", valor, saldo, limiteConta);
+            System.out.printf("%s reais sacado com sucesso. \nSaldo atual: %s \nLimite da conta: %s \nVocê está utilizando o cheque especial.\n", valor, saldo, limiteConta);
         } else {
-            System.out.printf("Saldo insuficiente! Saque máximo permitido %s", limiteConta);
+            System.out.printf("Saldo insuficiente! Saque máximo permitido %s\n", limiteConta);
         }
     }
 

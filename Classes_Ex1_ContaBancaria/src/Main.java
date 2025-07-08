@@ -13,7 +13,7 @@ public class Main {
             switch (escolhaDoUsuario){
                 case 1:
                     System.out.printf("Saldo da conta: %s \n", conta.consultarSaldo());
-                    System.out.println("============================= \n\n\n");
+                    System.out.println("=============================\n");
                     break;
                 case 2:
                     if(conta.verificarUsoCheque()){
@@ -21,34 +21,34 @@ public class Main {
                     } else {
                         System.out.println("Não! Você não está usando cheque especial \n");
                     }
-                    System.out.println("============================= \n\n\n");
+                    System.out.println("=============================\n");
                     break;
                 case 3:
                     System.out.printf("Você está usando %s reais do cheque especial. Atenção! Pode ser cobrada uma taxa de juros sobre esse valor. \n", conta.consultarCheque());
-                    System.out.println("============================= \n\n\n");
+                    System.out.println("=============================\n");
                     break;
                 case 4:
                     System.out.println("Digite o valor que gostaria de depositar:");
                     double valor = scanner.nextDouble();
                     conta.depositar(valor);
                     conta.status();
-                    System.out.println("============================= \n\n\n");
+                    System.out.println("=============================\n");
                     break;
                 case 5:
                     System.out.println("Digite o valor que deseja sacar:");
                     valor = scanner.nextDouble();
                     conta.sacarDinheiro(valor);
-                    System.out.println("============================= \n\n\n");
+                    System.out.println("=============================\n");
                     break;
                 case 6:
                     System.out.println("Digite o valor da conta que gostaria de pagar:");
                     valor = scanner.nextDouble();
                     conta.pagarConta(valor);
-                    System.out.println("============================= \n\n\n");
+                    System.out.println("=============================\n");
                     break;
                 case 7:
                     conta.status();
-                    System.out.println("============================= \n\n\n");
+                    System.out.println("=============================\n");
                     break;
                 case 8:
                     break;
