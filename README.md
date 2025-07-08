@@ -24,3 +24,12 @@
   - Estrutura de seleção switch case
   - Laço de repetição for
   - Repetição while/do while
+
+### Exercícios - Usos das classes
+#### Exercício 1
+[Exercício 01 - Conta Bancária](https://github.com/RaissaLNToledo/dio_trilha_java_basico/tree/main/Classes_Ex1_ContaBancaria)
+  > **Tópicos abordados**
+  - Uso de classe
+  - Uso de métodos
+  - Criação de objeto
+  - Menu interativo com switch case
