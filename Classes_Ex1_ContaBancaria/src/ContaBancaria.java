@@ -3,6 +3,7 @@ public class ContaBancaria {
     private final double limiteCheque;
     private double limiteConta;
     private double taxaCheque;
+    private double valorTaxado;
 
     public ContaBancaria(double deposito) {
         this.saldo = deposito;
@@ -28,15 +29,27 @@ public class ContaBancaria {
         return limiteConta;
     }
 
+    private void aplicarTaxaChequeEspecial(){
+        if(saldo < 0 && - saldo > valorTaxado){
+            double valorATaxar = -saldo - valorTaxado;
+            double novaTaxa = 0.2*valorATaxar;
+            taxaCheque += novaTaxa;
+            valorTaxado += valorATaxar;
+        }
+    }
+
     public void pagarConta(double valor){
         if (saldo >= valor){
             saldo = saldo - valor;
             limiteConta = atualizarLimiteConta(saldo);
-            System.out.printf("Conta no valor de %s paga com sucesso. \nSaldo atual: %s \nLimite da conta: %s\n", valor, saldo, limiteConta);
+            System.out.printf("Conta no valor de %s paga com sucesso. \n", valor);
+            status();
         } else if (limiteConta >= valor) {
              saldo = saldo - valor;
              limiteConta = atualizarLimiteConta(saldo);
-            System.out.printf("Conta no valor de %s paga com sucesso. \nSaldo atual: %s \nLimite da conta: %s \nVocê está utilizando o cheque especial.\n", valor, saldo, limiteConta);
+             aplicarTaxaChequeEspecial();
+             System.out.printf("Conta no valor de %s paga com sucesso. \n", valor);
+             status();
         } else {
             System.out.println("Saldo insuficiente para o pagamento da conta!\n");
         }
@@ -46,11 +59,12 @@ public class ContaBancaria {
         if (saldo >= valor){
             saldo = saldo - valor;
             limiteConta = atualizarLimiteConta(saldo);
-            System.out.printf("%s reais sacado com sucesso. \nSaldo atual: %s \nLimite da conta: %s\n", valor, saldo, limiteConta);
+            status();
         } else if (limiteConta >= valor) {
             saldo = saldo - valor;
             limiteConta = atualizarLimiteConta(saldo);
-            System.out.printf("%s reais sacado com sucesso. \nSaldo atual: %s \nLimite da conta: %s \nVocê está utilizando o cheque especial.\n", valor, saldo, limiteConta);
+            aplicarTaxaChequeEspecial();
+            status();
         } else {
             System.out.printf("Saldo insuficiente! Saque máximo permitido %s\n", limiteConta);
         }
@@ -66,7 +80,6 @@ public class ContaBancaria {
     }
 
     public void depositar(double valor){
-        taxaCheque = taxaCheque + 0.2*(-saldo);
         if (valor >= (taxaCheque + (-saldo))){
             valor = valor - (-saldo) - taxaCheque;
             taxaCheque = 0;
@@ -82,6 +95,12 @@ public class ContaBancaria {
             }
         } else {
             saldo = saldo + valor;
+        }
+
+        if (saldo >=0){
+            valorTaxado = 0;
+        } else {
+            valorTaxado = Math.min(-saldo, valorTaxado);
         }
 
         limiteConta = atualizarLimiteConta(saldo);
