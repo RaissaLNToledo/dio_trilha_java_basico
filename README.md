@@ -26,7 +26,7 @@
   - Repetição while/do while
 
 ### Exercícios - Usos das classes
-#### Exercício 1
+#### Simulação Conta Bancária
 [Exercício 01 - Conta Bancária](https://github.com/RaissaLNToledo/dio_trilha_java_basico/tree/main/Classes_Ex1_ContaBancaria)
   > **Tópicos abordados**
   - Uso de classe
